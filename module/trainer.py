@@ -1,4 +1,5 @@
 from module.models.textCNN import TextCNN
+from module.models.transformer import Transformer
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 
@@ -17,6 +18,8 @@ class Trainer:
         if self.config['model_name'] == 'text_cnn':
             self.logger.info("Creating textCNN model...")
             self.model = TextCNN(self.config, classes, self.vocab_size, self.logger, self.pretrained_embedding)
+        elif self.config['model_name'] == 'transformer':
+            self.model = Transformer(self.config, classes, self.vocab_size, self.logger, self.pretrained_embedding)
         else:
             self.logger.warning("Currently model {} is not be supported".format(self.config['model_name']))
 

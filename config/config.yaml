@@ -10,12 +10,15 @@ preprocessing:
   embedding_col: 100
   pretrained_embedding: ./data/glove.twitter.27B.100d.txt
 training:
-  model_name: text_cnn
+  model_name: transformer
+  nums_head: 5
+  nums_layer: 1
+  dff: 128
   batch_size: 32
-  dropout: 0.5
+  dropout: 0.1
   embedding_col: 100
   max_len: 128
   optimizer: sgd
-  epochs: 2
+  epochs: 1
 predict:
-  output_path: ./data/submission_pretrained_embedding.csv
+  output_path: ./data/submission_transformer.csv
